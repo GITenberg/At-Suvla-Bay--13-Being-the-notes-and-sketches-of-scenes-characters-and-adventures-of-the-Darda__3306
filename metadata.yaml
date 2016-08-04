@@ -1,0 +1,32 @@
+_repo: At-Suvla-Bay--13-Being-the-notes-and-sketches-of-scenes-characters-and-adventures-of-the-Darda__3306
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Hargrave, John
+    birthdate: 1894
+    deathdate: 1982
+    gutenberg_agent_id: '1160'
+    url: http://www.gutenberg.org/2009/agents/1160
+    wikipedia: http://en.wikipedia.org/wiki/John_Hargrave
+description: ''
+gutenberg_bookshelf: World War I
+gutenberg_issued: '2002-07-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '3306'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'World War, 1914-1918 -- Campaigns -- Turkey -- Gallipoli Peninsula -- Personal
+  narratives, British'
+- !lcsh 'World War, 1914-1918 -- Personal narratives, British'
+- !lcc 'D501'
+- !lcsh 'World War, 1914-1918 -- Medical care'
+- GITenberg
+title: "At Suvla Bay\r\nBeing the notes and sketches of scenes, characters and adventures\
+  \ of the Dardanelles campaign, made by John Hargrave (\"White Fox\") while serving\
+  \ with the 32nd field ambulance, X division, Mediterranean expeditionary force,\
+  \ during the great war."
+url: http://www.gutenberg.org/ebooks/3306
