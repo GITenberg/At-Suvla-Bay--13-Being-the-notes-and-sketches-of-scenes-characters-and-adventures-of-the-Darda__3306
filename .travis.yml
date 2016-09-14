@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: KFROoB0yf1qRZySkKZ9P38XUOev+ZP8qarCacX2gYG8NpAufASEJlPy/ocBVJxxT1y0XHX8KQSpdI49Y4fZxAjA5eI2YY9zCA4A/km1QVv5S3x71gczgqnbPrgFKCBocRY9ZZm91OFMXcZMbW/JJmGsRMb+OQzcu38dGazVHKgpl/+TJKQEDFQvEZUMMxZ8++fKezYQ4dC4ImhEoW03Dkjr0Z9DGL7uvPOB1zwlGG8GCXzjomYW5y0tas1lpZAshVCrg/RMtehUGbeMI2GMwN9804TlU+1UpbjNFaJ39tSIvA7hFwGmglsxoLB9Grs76qPGlKatKrVHtIazHQBrHIxiIDwE2ep81+BE9ypomQaEZl/obM62PKTzVf7mjqb4NxwIL4R8hdc55AjuWv/Vci44BQgWl/aFo2p3FrDwT5EqI79DwomTSbhFof3ve+5fYK4D2O5uUoTEBvi9+9IcubzHJdMpSGOEBBvHTw4fnV4J/FuIusmXP3k/4S06yvJUvYQLOelqbrgBIErNAUhxegmj0gVBPBEZ4wD5V/bOa89gasVErSZ3xPNIRrH9Q+HuXSD5aPeA+K0zGno43A+HN4SjR1Bafk7+tlnGqs7c//yG81qWeFCmWaM7IZ4690+7O5nc7cCNHOy0X53JkeqaUffV9uXRuHD4C8TDWLFHvXmc=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/At-Suvla-Bay--13-Being-the-notes-and-sketches-of-scenes-characters-and-adventures-of-the-Darda__3306
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
