@@ -1,5 +1,8 @@
 _repo: At-Suvla-Bay--13-Being-the-notes-and-sketches-of-scenes-characters-and-adventures-of-the-Darda__3306
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Hargrave, John
@@ -9,6 +12,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/1160
     wikipedia: http://en.wikipedia.org/wiki/John_Hargrave
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/3306#At-Suvla-Bay--13-Being-the-notes-and-sketches-of-scenes-characters-and-adventures-of-the-Darda_
 gutenberg_bookshelf: World War I
 gutenberg_issued: '2002-07-01'
 gutenberg_type: Text
